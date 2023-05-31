@@ -1,0 +1,25 @@
+@use "../styles" as *;
+
+.cell {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  font-weight: 600;
+  text-shadow: 0px 0px 7px #f8c10e;
+  border-radius: 5px;
+  background: rgba(85, 180, 248, 0.6);
+  cursor: pointer;
+  box-shadow: 0px 0px 3px #0a51f6;
+}
+
+.rotation {
+  animation: 1s rotation linear;
+}
+
+@keyframes rotation {
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}

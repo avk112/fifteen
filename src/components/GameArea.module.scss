@@ -1,0 +1,22 @@
+@use "../styles" as *;
+
+.gameArea {
+ @include standartBlock();
+  flex: 1 1 auto;
+  gap: 1em;
+  align-items: center;
+  touch-action: pinch-zoom;
+
+
+ button {
+  @include standartBtn($width: 29%);
+  text-transform: uppercase;
+  box-shadow: 0px 0px 7px #104DCE;
+
+  @media screen and (max-device-width: $tablet){
+   width: 50%;
+   padding: 5% 2%;
+   margin: 0 0 5em 0;
+  }
+ }
+}

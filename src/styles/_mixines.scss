@@ -1,0 +1,46 @@
+@use "./colors" as *;
+
+@mixin standartBlock($direction:column, $justify: space-between, $align: center, $width: 100%) {
+  position: relative;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  width: $width;
+  box-sizing: border-box;
+}
+
+@mixin standartBtn ($width:50%) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $width;
+  font-size: 1.135em;
+  font-weight: 600;
+  line-height: 1.2;
+  color: $btnFontColor;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #4487FF 0%, #86B2FF 50%, #4487FF 100%);
+  border-radius: 5px;
+  border: none;
+  margin: 0;
+  padding: 2%;
+  cursor: pointer;
+  transition: all 0.3s linear;
+
+  &:hover {
+    background: linear-gradient(to bottom, #6A9FFF 0%, #ACCAFF 50%, #6A9FFF 100%);
+    outline: 1px solid $btnBackgroundColor;
+  }
+
+  &:disabled {
+    cursor: default;
+    background: linear-gradient(to bottom, #c4d8fc 0%, #ACCAFF 50%, #c4d8fc 0%);
+  }
+
+  &:disabled:hover {
+    outline: none;
+    color: $btnFontColor;
+  }
+}
