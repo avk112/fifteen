@@ -26,26 +26,30 @@ const Cell = ({cell, emptyCell, setCells, animation}) => {
     };
 
     const handleClick = (cell)=>{
-        const {number, x, y} = cell;
-        const isValidToMove = checkIsValidToMove(cell);
+        if(!animation) {
+            const {number, x, y} = cell;
+            const isValidToMove = checkIsValidToMove(cell);
 
-        return (isValidToMove.x || isValidToMove.y) && move(number, x, y, isValidToMove.x, isValidToMove.y);
+            return (isValidToMove.x || isValidToMove.y) && move(number, x, y, isValidToMove.x, isValidToMove.y);
+        }
     };
 
     const startTouch = (e, cell)=> {
-        const eventX = e.touches[0].screenX;
-        const eventY = e.touches[0].screenY;
-        const cellX = e.target.offsetLeft;
-        const cellY = e.target.offsetTop;
-        const timestamp = e.touches[0].timestamp;
-        const isValidToMove = checkIsValidToMove(cell)
+        if(!animation) {
+            const eventX = e.touches[0].screenX;
+            const eventY = e.touches[0].screenY;
+            const cellX = e.target.offsetLeft;
+            const cellY = e.target.offsetTop;
+            const timestamp = e.touches[0].timestamp;
+            const isValidToMove = checkIsValidToMove(cell)
 
-        return setTouchCoords({
-            cell:{x: cellX, y: cellY},
-            touch: {x: eventX, y: eventY},
-            timestamp: timestamp,
-            move:{...isValidToMove}
-        });
+            return setTouchCoords({
+                cell: {x: cellX, y: cellY},
+                touch: {x: eventX, y: eventY},
+                timestamp: timestamp,
+                move: {...isValidToMove}
+            });
+        }
     };
 
 

@@ -40,7 +40,7 @@ const CellsBlock = ({shuffled, setShuffled, animation, setAnimation}) => {
 
 
     const shuffleCells = ()=> {
-        let newCells = [...cells];
+        let newCells = createCells();
         let prevMove = "";
 
         for(let i=100; i>0; i--){
